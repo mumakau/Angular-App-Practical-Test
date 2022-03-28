@@ -1,0 +1,71 @@
+<div class="row">
+	<div class="col-md-6">
+		<h3>
+		  Welcome to Angular<br />
+		  <small class="text-muted">This is where the fun starts.</small>
+		</h3>
+		Angular is a TypeScript-based free and open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations. Angular is a complete rewrite from the same team that built AngularJS
+	</div>
+  <div class="col-md-6">
+	<div class="card border border-standard">
+    <div class="card-header bg-standard text-white">
+      <h4 class="card-title"> Login</h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="loginform" (ngSubmit)="appLogin()">
+       <label for="email">Email</label>
+       <div class="input-group mb-3">
+        <input type="email" class="form-control" placeholder="username@server.co" formControlName="email" >
+        <div *ngIf="loginF.email.touched && loginF.email.invalid" class="alert alert-danger">
+          <div *ngIf="loginF.email.errors?.required">Password is required.</div>
+          <div *ngIf="loginF.email.errors?.email">Kindly enter the right email format</div>
+          </div>
+       </div>
+
+       <label for="passsword">Password</label>
+       <div class="input-group mb-3">
+        <input
+                  [type]="fieldTextType ? 'text' : 'password'"
+                  class="form-control"
+                  formControlName="password"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">
+                    <i
+                      class="fa"
+                      style="font-size: 2rem;"
+                      [ngClass]="{
+                        'fa-eye-slash': !fieldTextType,
+                        'fa-eye': fieldTextType
+                      }"
+                      (click)="toggleFieldTextType()"
+                    ></i>
+                  </span>
+                </div>
+                <div *ngIf="loginF.password.touched && loginF.password.invalid" class="alert alert-danger">
+                  <div *ngIf="loginF.password.errors?.pattern">Password should include alphanumeric, special characters and has a minimum of 8 characters</div>
+                </div>
+       </div>
+
+       <button
+       class="btn-primary btn btn-block"
+       [disabled]="!loginform.valid"
+     >
+       Sign In
+     </button>
+
+
+      </form>
+
+    </div>
+    <div class="card-footer bg-transparent border-success">Don't have an Account?<span style="color: blue;" (click)="gotoRegister()"> Register</span></div>
+
+  </div>
+  </div>
+  </div>
+
+
+
+
+
+

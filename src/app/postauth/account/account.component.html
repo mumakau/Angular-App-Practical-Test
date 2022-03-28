@@ -1,0 +1,50 @@
+<div class="row">
+	<div class="col-md-6">
+		<h3>
+      {{userinfo?.email}}<br />
+		  <small class="text-muted">{{userinfo?.first_name}} <span>{{userinfo?.last_name}}</span></small>
+		</h3>
+    <img src={{userinfo?.avatar}} class="rounded">
+	</div>
+  <div class="col-md-6">
+	<div class="card border border-standard">
+    <div class="card-header bg-standard text-white">
+      <h4 class="card-title"> Update Account</h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="accountform" (ngSubmit)="updateAccount()">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Your Name"
+              formControlName="name"
+            />
+
+          </div>
+          <div class="form-group">
+            <label for="job">Job Title</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Your JobS"
+              formControlName="job"
+            />
+
+          </div>
+          <div class="form-group"></div>
+
+          <button
+          class="btn-primary btn btn-block"
+          [disabled]="!accountform.valid"
+        >
+          Update Profile
+        </button>
+          </form>
+
+    </div>
+   </div>
+  </div>
+  </div>
+

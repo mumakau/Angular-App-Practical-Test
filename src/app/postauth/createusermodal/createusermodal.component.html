@@ -1,0 +1,42 @@
+
+
+
+
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Simple modal</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <form [formGroup]="userinfoform" (ngSubmit)="editUser()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Your Name"
+          formControlName="name"
+        />
+
+      </div>
+      <div class="form-group">
+        <label for="job">Job Title</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="job"
+        />
+
+      </div>
+
+      <button
+      class="btn-primary btn btn-block"
+      [disabled]="!userinfoform.valid"
+    >
+      Edit User
+    </button>
+      </form>
+
+  </div>

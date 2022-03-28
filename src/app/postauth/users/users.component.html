@@ -1,0 +1,63 @@
+<div class="content">
+  <h5 class="card-header">
+      Dashboard
+    </h5>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Avatar</th>
+        <th>first name</th>
+        <th>last name</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; let i = index;">
+       <td>
+          <img src={{user.avatar}} class="rounded">
+        </td>
+        <td>
+          {{user.first_name}}
+        </td>
+        <td>
+          {{user.last_name}}
+        </td>
+        <td>
+          {{user.email}}
+        </td>
+        <td>
+          <div ngbDropdown>
+          <button class="btn btn-info" id="gfg"
+          ngbDropdownToggle>Manage</button>
+  <div ngbDropdownMenu="gfg">
+    <button ngbDropdownItem (click)="viewUser(user.id)" >View User</button>
+    <button ngbDropdownItem (click)="editUser(user.id)" >Edit User</button>
+    <button ngbDropdownItem (click)="deleteUser(user.id)" >Delete</button>
+  </div>
+</div>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Previous</a>
+      </li>
+      <li *ngFor="let pageno of pages; let i = index;" class="page-item"><a class="page-link" (click)="listUsers(pageno)">{{pageno}}</a></li>
+      <li *ngIf="response.total_pages<response.page+1" class="page-item">
+        <a class="page-link" (click)="listUsers(response.page+1)"></a>
+      </li>
+
+    </ul>
+
+  </nav>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+<div class="row">
+	<div class="col-md-6">
+		<h3>
+		  Welcome to Angular<br />
+		  <small class="text-muted">This is where the fun starts.</small>
+		</h3>
+    Angular is a TypeScript-based free and open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations. Angular is a complete rewrite from the same team that built AngularJS
+	</div>
+  <div class="col-md-6">
+	<div class="card border border-standard">
+    <div class="card-header bg-standard text-white">
+      <h4 class="card-title"> Register</h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="registerform" (ngSubmit)="appRegistration()">
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="example@mail.com"
+            formControlName="email"
+          />
+          <div *ngIf="registerF.email.touched && registerF.email.invalid" class="alert alert-danger">
+            <div *ngIf="registerF.email.errors?.required">Password is required.</div>
+            <div *ngIf="registerF.email.errors?.email">Kindly enter the right email format</div>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password"
+          />
+
+          <div *ngIf="registerF.password.touched && registerF.password.invalid" class="alert alert-danger">
+            <div *ngIf="registerF.password.value===''">Password is required.</div>
+            <div *ngIf="registerF.password.errors?.pattern">Password should include Capital, alphanumeric, special characters and has a minimum of 8 characters</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Confirm password</label>
+          <input
+            type="password"
+            class="form-control"
+            formControlName="confirmpassword"
+          />
+          <div *ngIf="registerF.confirmpassword.touched && registerF.confirmpassword.invalid" class="alert alert-danger">
+            <div *ngIf="registerF.confirmpassword.errors">Password and Confirm Password must match.</div>
+        </div>
+        </div>
+<div>
+  <button
+       class="btn-primary btn btn-block"
+       [disabled]="!registerform.valid"
+     >
+       Register
+     </button>
+
+</div>
+
+      </form>
+
+    </div>
+
+    <div class="card-footer bg-transparent border-success">Already Have an Account?<span style="color: blue;" (click)="gotoLogin()"> LOGIN</span></div>
+
+
+  </div>
+  </div>
+  </div>
