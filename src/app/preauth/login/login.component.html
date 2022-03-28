@@ -43,7 +43,7 @@
                   </span>
                 </div>
                 <div *ngIf="loginF.password.touched && loginF.password.invalid" class="alert alert-danger">
-                  <div *ngIf="loginF.password.errors?.pattern">Password should include alphanumeric, special characters and has a minimum of 8 characters</div>
+                  <div *ngIf="loginF.password.errors?.pattern">Password should include alphanumeric including capital letters, special characters and has a minimum of 8 characters</div>
                 </div>
        </div>
 
