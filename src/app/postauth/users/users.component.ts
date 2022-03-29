@@ -29,7 +29,6 @@ export class UsersComponent implements OnInit {
 
 
   listUsers(pageno){
-    alert("working")
     this.pages=[]
     this.response={};
     this.users=[]
